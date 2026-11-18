@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-soul-sans);
+  --font-display: var(--font-soul-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-soul-blue: var(--soul-blue);
+  --color-soul-violet: var(--soul-violet);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+ * SOUL AI — Thème sombre premium.
+ * Noir profond, bleu électrique et violet en accents.
+ */
+:root,
+.dark {
+  --radius: 0.75rem;
+  --background: #05060f;
+  --foreground: #e8eaf6;
+  --card: rgba(255, 255, 255, 0.04);
+  --card-foreground: #e8eaf6;
+  --popover: #0d0f1f;
+  --popover-foreground: #e8eaf6;
+  --primary: #4f7fff;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.07);
+  --secondary-foreground: #e8eaf6;
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: #8a8fa8;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --destructive: #f43f5e;
+  --destructive-foreground: #ffffff;
+  --border: rgba(139, 92, 246, 0.18);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: rgba(79, 127, 255, 0.5);
+  --chart-1: #4f7fff;
+  --chart-2: #8b5cf6;
+  --chart-3: #22d3ee;
+  --chart-4: #f472b6;
+  --chart-5: #facc15;
+  --sidebar: #0a0c18;
+  --sidebar-foreground: #e8eaf6;
+  --sidebar-primary: #4f7fff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(139, 92, 246, 0.15);
+  --sidebar-accent-foreground: #e8eaf6;
+  --sidebar-border: rgba(139, 92, 246, 0.18);
+  --sidebar-ring: rgba(79, 127, 255, 0.5);
+  --soul-blue: #4f7fff;
+  --soul-violet: #8b5cf6;
+  --font-soul-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-soul-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-soul-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+}
+
+/* Fond ambiant : halos bleu/violet très subtils */
+.soul-bg {
+  position: relative;
+  isolation: isolate;
+}
+.soul-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(60% 40% at 20% 0%, rgba(79, 127, 255, 0.10), transparent 60%),
+    radial-gradient(50% 35% at 85% 15%, rgba(139, 92, 246, 0.10), transparent 60%),
+    radial-gradient(45% 30% at 50% 100%, rgba(79, 127, 255, 0.06), transparent 65%);
+  pointer-events: none;
+}
+.soul-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+}
+
+.font-display {
+  font-family: var(--font-soul-display);
+}
+
+/* Cartes verre premium */
+.glass {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(139, 92, 246, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glow-blue {
+  box-shadow: 0 0 24px rgba(79, 127, 255, 0.28), 0 0 60px rgba(79, 127, 255, 0.10);
+}
+.glow-violet {
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.30), 0 0 60px rgba(139, 92, 246, 0.12);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #4f7fff 15%, #8b5cf6 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scrollbars discrets */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.25);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+/* Animations d'états SOUL */
+@keyframes soul-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+.soul-pulse {
+  animation: soul-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes soul-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.soul-float {
+  animation: soul-float 5s ease-in-out infinite;
+}
+
+@keyframes soul-wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+/* Zone de saisie toujours au-dessus des safe-areas mobiles */
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+.safe-top {
+  padding-top: max(env(safe-area-inset-top), 0.5rem);
+}
+
+/* Empêcher la sélection accidentelle sur les contrôles mobiles */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
