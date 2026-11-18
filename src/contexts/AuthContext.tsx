@@ -43,6 +43,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [demoUser, setDemoUser] = useState<{ email: string; name: string } | null>(null);
   const tokenRef = useRef<User | null>(null);
+  const firstToken = useRef(true);
 
   useEffect(() => {
     if (!firebaseConfigured) {
@@ -68,7 +69,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(u);
       invalidateTokenCache();
       if (u) {
-        u.getIdTokenResult()
+        // Premier chargement : rafraîchissement forcé pour récupérer les
+        // claims admin posés récemment (sinon token en cache ~1 h sans claim).
+        const force = firstToken.current;
+        firstToken.current = false;
+        u.getIdTokenResult(force)
           .then((r) => setIsAdmin(!!r.claims.admin))
           .catch(() => setIsAdmin(false));
       } else {
