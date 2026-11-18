@@ -38,7 +38,7 @@ export type ProviderId = "groq" | "openrouter" | "gemini" | "xai";
 export const PROVIDER_IDS: ProviderId[] = ["groq", "openrouter", "gemini", "xai"];
 
 export const PROVIDER_LABELS: Record<ProviderId, string> = {
-  groq: "Groq (Llama 3.3)",
+  groq: "Groq (GPT-OSS)",
   openrouter: "OpenRouter",
   gemini: "Google Gemini",
   xai: "xAI Grok",

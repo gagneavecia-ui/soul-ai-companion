@@ -39,6 +39,10 @@ export const geminiProvider = {
           generationConfig: {
             temperature: opts.temperature ?? 0.8,
             maxOutputTokens: opts.maxTokens ?? 700,
+            // Désactive la réflexion interne des modèles thinking (3.x flash)
+            // pour des réponses conversationnelles rapides. Ignoré par les
+            // modèles qui ne le supportent pas.
+            thinkingConfig: { thinkingBudget: 0 },
           },
         }),
       });

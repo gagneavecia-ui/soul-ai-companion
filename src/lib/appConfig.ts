@@ -21,7 +21,7 @@ export interface SoulAppConfig {
 }
 
 const DEFAULT_MODELS: Record<ProviderId, string> = {
-  groq: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
+  groq: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
   openrouter: process.env.OPENROUTER_MODEL || "inclusionai/ling-3.2-flash:free",
   gemini: process.env.GEMINI_MODEL || "gemini-3.8-flash",
   xai: process.env.XAI_MODEL || "grok-3-mini",

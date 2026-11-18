@@ -63,7 +63,7 @@ Navigateur (PWA)                          Serveur (Vercel Functions)
 
 | Fournisseur | Endpoint | Auth | Modèle par défaut |
 |---|---|---|---|
-| Groq | `api.groq.com/openai/v1/chat/completions` | Bearer | `llama-3.3-70b-versatile` |
+| Groq | `api.groq.com/openai/v1/chat/completions` | Bearer | `openai/gpt-oss-120b` |
 | OpenRouter | `openrouter.ai/api/v1/chat/completions` | Bearer | `inclusionai/ling-3.2-flash:free` |
 | Gemini | `generativelanguage.googleapis.com/v1beta/models/{m}:generateContent` | `x-goog-api-key` | `gemini-3.8-flash` |
 | xAI (option) | `api.x.ai/v1/chat/completions` | Bearer | `grok-3-mini` |
