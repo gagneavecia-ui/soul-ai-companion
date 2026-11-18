@@ -35,7 +35,7 @@ export function envDefaults(): SoulAppConfig {
     providerOrder: ["groq", "openrouter", "gemini", "xai"],
     models: { ...DEFAULT_MODELS },
     systemPrompt: process.env.SOUL_SYSTEM_PROMPT || DEFAULT_SYSTEM_PROMPT,
-    timeoutMs: 25_000,
+    timeoutMs: 40_000,
     maxTokens: 700,
   };
 }
